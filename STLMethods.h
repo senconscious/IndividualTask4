@@ -5,6 +5,9 @@ using namespace std;
 #include <exception>
 #include <algorithm>
 #include <vector>
+#include <fstream>
+#include <sstream>
+
 
 
 //Swaps first and Last elements in the string and returns it. String must be of event length
@@ -21,6 +24,23 @@ void insertFiveElementsMiddle(vector<T>& o);
 template<typename T>
 auto print = [](const T& o) {cout << " " << o; };
 
+//Read Matrixes from file
+vector<vector<double>> ReadMatrix(string file);
+
+
+//Prints Matrix
+template<typename T>
+void printM(vector<vector<T>> o);
+
+//Returns rank of matrix
+int matrixRank(vector<vector<double>> A);
+
+// Returns if a system has the only solution
+bool hasOnlySolution(vector<vector<double>> A);
+
+// Returns solution of system
+vector<double> solve(vector<vector<double>> A);
+
 
 
 
@@ -35,4 +55,15 @@ void insertFiveElementsMiddle(vector<T>& o)
 	{
 		o.insert(o.begin() + o.size() % 2, 5, T());
 	}
+}
+
+template<typename T>
+void printM(vector<vector<T>> o)
+{
+	for (auto _temp : o)
+	{
+		for_each(_temp.begin(), _temp.end(), print<T>);
+		cout << endl;
+	}
+
 }

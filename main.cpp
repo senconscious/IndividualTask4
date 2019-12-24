@@ -4,7 +4,7 @@
 
 int main()
 {
-	string s;
+	/*string s;
 	cout << "Enter string of even length" << endl;
 	cin >> s;
 
@@ -50,7 +50,19 @@ int main()
 	catch (...)
 	{
 		cout << "Unknown Error" << endl;
-	}
+	}*/
+
+	auto m = ReadMatrix("AMatrix.txt");
+
+	printM(m);
+
+	cout << "Matrix Rank is: "<<matrixRank(m)<< endl;
+
+	auto v = solve(m);
+
+	for_each(v.begin(), v.end(), print<double>);
+	cout << endl;
+
 
 
 
